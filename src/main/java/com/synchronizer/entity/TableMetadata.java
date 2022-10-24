@@ -1,12 +1,13 @@
 package com.synchronizer.entity;
 
 import java.util.List;
+import java.util.Map;
 
 public class TableMetadata {
     private String table;
-    private List<String> columnList;
+    private Map<String, Boolean> columnList;
 
-    public TableMetadata(String table, List<String> columnList) {
+    public TableMetadata(String table, Map<String, Boolean> columnList) {
         this.table = table;
         this.columnList = columnList;
     }
@@ -19,11 +20,11 @@ public class TableMetadata {
         this.table = table;
     }
 
-    public List<String> getColumnList() {
+    public Map<String, Boolean> getColumnList() {
         return columnList;
     }
 
-    public void setColumnList(List<String> columnList) {
+    public void setColumnList(Map<String, Boolean> columnList) {
         this.columnList = columnList;
     }
 

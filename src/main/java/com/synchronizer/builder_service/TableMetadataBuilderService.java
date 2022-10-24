@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class TableMetadataBuilderService {
@@ -29,8 +30,14 @@ public class TableMetadataBuilderService {
         List<String> tableNames = tableRepository.getAllTables();
         tableNames.forEach(name -> {
             List<String> columns = columnRepository.getAllColumnByTableName(name);
-            tableMetadata.add(new TableMetadata(name,columns));
+            HashMap<String,Boolean> nonCheckedColumns =  new HashMap<>();
+            for(String s: columns){
+                nonCheckedColumns.put(s,false);
+            }
+            tableMetadata.add(new TableMetadata(name,nonCheckedColumns));
+
         });
+
         return tableMetadata;
 
     }
