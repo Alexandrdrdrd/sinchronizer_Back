@@ -34,7 +34,7 @@ public class MainRestController {
     @CrossOrigin(origins = "http://localhost:3000")
     public List<TableMetadata> getDataFromClient(@RequestBody  List<TableMetadata> list ) {
         System.out.println(list);
-        return null;
+        return list;
 
     }
 
